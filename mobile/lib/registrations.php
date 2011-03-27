@@ -18,7 +18,7 @@ class Registrations {
 	 * @param array $user_data 
 	 * @return boolean
 	 */
-	public function create_account($user_data) {
+	public function register_user($user_data) {
 
 		if (!$this->validate_user_data($user_data)) {
 			return false;

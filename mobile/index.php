@@ -67,7 +67,7 @@
                     <h1>Blipter</h1>
                     <a class="button flipright" id="infoButton" href="#signin">Sign in</a>
                 </div>
-            	<form id="create_account" action="lib/create_account.php" method="POST" class="form">
+            	<form id="create_account" action="create_account.php" method="POST" class="form">
                     <ul class="edit rounded">
                         <li><input type="email" name="email" placeholder="Email" id="email" /></li>
                         <li><input type="password" name="password" value="somepass" id="password" /></li>
@@ -86,7 +86,7 @@
                     <h1>Blipter</h1>
                     <a class="button flipleft" id="infoButton" href="#signup">Sign up</a>
                 </div>
-            	<form id="login_account" action="lib/login_account.php" method="POST" class="form">
+            	<form id="login_account" action="login_account.php" method="POST" class="form">
                     <ul class="edit rounded">
                         <li><input type="email" name="email" placeholder="Email" id="email" /></li>
                         <li><input type="password" name="password" value="somepass" id="password" /></li>

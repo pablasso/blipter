@@ -1,16 +1,14 @@
 <?php 
-
-require_once 'registrations.php';
+require_once 'lib/registrations.php';
 $registrations = new Registrations();
 $user = $registrations->get_user($_POST['email'], $_POST['password']);
-
 ?>
 
 <?php if ($user != null): ?>
 	<div>
 		<div class="toolbar">
 	    	<h1>Logged user!</h1>
-	    	<a href="#" class="button back">Back</a>
+            <a class="button" id="infoButton" href="signout.php">Sign out</a>
 		</div>
 	</div>
 <?php else: ?>

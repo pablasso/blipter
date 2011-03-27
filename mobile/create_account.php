@@ -1,16 +1,13 @@
 <?php 
-
-require_once 'registrations.php';
+require_once 'lib/registrations.php';
 $registrations = new Registrations();
-$account_created = $registrations->create_account($_POST);
-
+$account_created = $registrations->register_user($_POST);
 ?>
 
 <?php if ($account_created): ?>
 	<div>
 		<div class="toolbar">
 	    	<h1>Link accounts</h1>
-	    	<a href="#" class="button back">Back</a>
 		</div>
 	</div>
 <?php else: ?>

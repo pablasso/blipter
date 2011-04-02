@@ -12,7 +12,7 @@ $service = null;
 if (!empty($_POST['payload'])) {
 	$payload = json_decode($_POST['payload'], true);
 
-	if (!empty($payload['base_ref'])) {
+	if (!empty($payload['ref'])) {
 		$service = "github";
 	}
 	else if (!empty($payload['pusher'])) {

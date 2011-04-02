@@ -1,12 +1,12 @@
 <?php
 
-if (empty($_GET['c']) || !is_numeric($_GET['c'])) {
+if (empty($_REQUEST['c'])) {
 	file_put_contents("/tmp/gitpost", "INVALID CHANNEL", FILE_APPEND);
 	file_put_contents("/tmp/gitpost", print_r($_REQUEST, true), FILE_APPEND);
 	exit();
 }
 
-$channel = $_GET['c'];
+$channel = "presence-{$_REQUEST['c']}";
 $service = null;
 
 if (!empty($_POST['payload'])) {
@@ -19,7 +19,7 @@ switch ($service) {
 		$author = $github_payload['commits'][0]['author']['email'];
 		$action = "commit on ";
 		$subject = $github_payload['repository']['name'];
-		$description = $github_payload['commits'][0]['message'];
+		$content = $github_payload['commits'][0]['message'];
 		break;
 	default:
 		file_put_contents("/tmp/gitpost", "INVALID SERVICE", FILE_APPEND);
@@ -33,7 +33,7 @@ $to_encode = array(
  				'author' => $author,
  				'action' => $action,
  				'subject' => $subject,
- 				'description' => $description);
+ 				'content' => $content);
 
 require_once 'lib/Pusher.php';
 

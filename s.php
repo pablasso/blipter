@@ -1,6 +1,6 @@
 <?php
 
-if (empty($_GET['c']) || !is_numeric($_GET['c']) {
+if (empty($_GET['c']) || !is_numeric($_GET['c'])) {
 	file_put_contents("/tmp/gitpost", "INVALID CHANNEL", FILE_APPEND);
 	file_put_contents("/tmp/gitpost", print_r($_REQUEST, true), FILE_APPEND);
 	exit();

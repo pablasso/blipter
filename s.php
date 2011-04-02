@@ -13,6 +13,10 @@ if (!empty($_POST['payload'])) {
 	$service = "github";
 	$github_payload = json_decode($_POST['payload'], true);
 }
+else if (!empty($_POST['body'])) {
+	$service = "pivotal";
+	$pivotal_data = simplexml_load_string($_POST['body']);
+}
 
 switch ($service) {
 	case 'github':
@@ -21,6 +25,11 @@ switch ($service) {
 		$subject = $github_payload['repository']['name'];
 		$content = $github_payload['commits'][0]['message'];
 		break;
+	case 'pivotal':
+		$author = "";
+		$action = ucfirst(str_replace("_", " ", $pivotal_data->event_type)) . " on ";
+		$subject = "Pivotal Tracker";
+		$content = $pivotal_data['description'];
 	default:
 		file_put_contents("/tmp/gitpost", "INVALID SERVICE", FILE_APPEND);
 		file_put_contents("/tmp/gitpost", print_r($_REQUEST, true), FILE_APPEND);

@@ -46,5 +46,6 @@ $pusher->trigger($channel, 'push', json_encode($to_encode));
 
 file_put_contents("/tmp/gitpost", "PUSHED!", FILE_APPEND);
 file_put_contents("/tmp/gitpost", print_r($_REQUEST, true), FILE_APPEND);
+file_put_contents("/tmp/gitpost", print_r($to_encode, true), FILE_APPEND);
 
 ?>
